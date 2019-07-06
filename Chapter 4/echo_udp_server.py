@@ -14,6 +14,6 @@ while True:
     print(data)
 
     if(data):
-        message = "Dear client: " + str(address) + " Your message is:" + data.decode("ascii")
+        message = "Dear client: " + str(address) + " Your message is: " + data.decode("ascii")
         sent = sock.sendto(message.encode('ascii'), address)
         print("send %s bytes back to the client %s" % (sent, address))
