@@ -1,4 +1,5 @@
 import socket
+import time
 
 # Create socket Object
 server_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -20,8 +21,10 @@ while True:
         message = client_sock.recv(1024)
         # Process
         string = "Dear Client: " + str(addr) + " Your message is: "
-        message = string.encode('ascii') + message 
+        message = string.encode('ascii') + message
+        time.sleep(10)
         client_sock.sendall(message)
+        print("Sent Echo to:" + str(addr))
 
     except exception as e:
         client_sock.sendall(str(e))
